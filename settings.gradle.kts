@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "HurgadHotel"
 include(":app")
- 
+include(":data")
+include(":domain")
