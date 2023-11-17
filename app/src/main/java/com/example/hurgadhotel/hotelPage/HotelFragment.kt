@@ -21,6 +21,10 @@ class HotelFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.hotelText.text = hotelViewModel.hotels.value?.get(0)?.name ?: "hotel didn't found"
+        hotelViewModel.hotel.observe(viewLifecycleOwner)  { hotelInfo ->
+            val photos = hotelInfo.image_urls
+            val adapter = PhotoCarouselAdapter(photos)
+            binding.viewPager.adapter = adapter
+        }
     }
 }

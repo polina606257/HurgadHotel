@@ -4,5 +4,5 @@ import com.example.hurgadhotel.data.DataResult
 import com.example.hurgadhotel.domain.model.Hotel
 
 interface HotelRepository {
-    suspend fun getHotels() : DataResult<List<Hotel>>
+    suspend fun getHotel() : DataResult<Hotel>
 }

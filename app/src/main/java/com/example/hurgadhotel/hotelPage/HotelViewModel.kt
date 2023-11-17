@@ -10,18 +10,22 @@ import com.example.hurgadhotel.domain.model.Hotel
 import kotlinx.coroutines.launch
 
 class HotelViewModel(private val hotelRepository: HotelRepository) : ViewModel() {
-    private val _hotels = MutableLiveData<List<Hotel>?>()
-    val hotels: MutableLiveData<List<Hotel>?> = _hotels
+    private val _hotel = MutableLiveData<Hotel>()
+    val hotel: MutableLiveData<Hotel> = _hotel
 
     init {
         viewModelScope.launch {
-            when (val dataResult = hotelRepository.getHotels()) {
+            when (val dataResult = hotelRepository.getHotel()) {
                 is DataResult.Success -> {
-                    _hotels.value = dataResult.response
+                    _hotel.value = dataResult.response
                 }
 
                 is DataResult.Error ->
-                   Log.i("TAG", "Couldn't get list of hotels, error ${dataResult.error}")
+                   Log.i("TAG", "Couldn't find hotel, error ${dataResult.error}")
+
+                else -> {
+                    Log.i("TAG", "something went wrong")
+                }
             }
         }
     }
