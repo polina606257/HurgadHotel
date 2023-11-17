@@ -9,5 +9,5 @@ object ApiRetrofitFactory {
         return Retrofit.Builder().baseUrl(Config.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
-    fun provideHotelApi(retrofit: Retrofit): HotelApi = retrofit.create(HotelApi::class.java)
+    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 }

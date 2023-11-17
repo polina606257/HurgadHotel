@@ -9,5 +9,15 @@
         android:id="@+id/hotelFragment"
         android:name="com.example.hurgadhotel.hotelPage.HotelFragment"
         android:label="fragment_hotel"
-        tools:layout="@layout/fragment_hotel" />
+        tools:layout="@layout/fragment_hotel" >
+        <action
+            android:id="@+id/action_hotelFragment_to_roomFragment"
+            app:destination="@id/roomFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.example.hurgadhotel.roomPage.RoomFragment"
+        android:label="RoomFragment" >
+    </fragment>
 </navigation>

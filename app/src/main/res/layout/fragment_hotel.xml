@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="hotelViewModel"
             type="com.example.hurgadhotel.hotelPage.HotelViewModel" />
@@ -30,7 +29,7 @@
                 app:layout_constraintVertical_chainStyle="packed">
 
                 <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPager"
+                    android:id="@+id/hotelPhotoPager"
                     android:layout_width="match_parent"
                     android:layout_height="200dp" />
             </androidx.cardview.widget.CardView>
@@ -61,12 +60,12 @@
                 app:layout_constraintTop_toBottomOf="@id/cardView2">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button"
+                    android:id="@+id/to_choose_number_btn"
                     android:layout_width="343dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Click me"
+                    android:text="@string/to_choose_room"
                     app:cornerRadius="12dp"
                     app:backgroundTint="#0D72FF"/>
             </androidx.cardview.widget.CardView>

@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import com.example.hurgadhotel.R
 import com.example.hurgadhotel.databinding.FragmentHotelBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -22,9 +24,16 @@ class HotelFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         hotelViewModel.hotel.observe(viewLifecycleOwner)  { hotelInfo ->
-            val photos = hotelInfo.image_urls
-            val adapter = PhotoCarouselAdapter(photos)
-            binding.viewPager.adapter = adapter
+            val photos = hotelInfo?.image_urls
+            val adapter = photos?.let { PhotoCarouselAdapter(it) }
+            binding.hotelPhotoPager.adapter = adapter
+        }
+
+        binding.toChooseNumberBtn.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString("hotelName", hotelViewModel.hotel.value?.name)
+            }
+            it.findNavController().navigate(R.id.action_hotelFragment_to_roomFragment, bundle)
         }
     }
 }

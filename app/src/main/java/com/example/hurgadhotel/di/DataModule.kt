@@ -1,19 +1,19 @@
 package com.example.hurgadhotel.di
 
-import com.example.hurgadhotel.data.remote.ApiRetrofitFactory.provideHotelApi
+import com.example.hurgadhotel.data.remote.ApiRetrofitFactory.provideApiService
 import com.example.hurgadhotel.data.remote.ApiRetrofitFactory.provideRetrofit
-import com.example.hurgadhotel.data.remote.HotelApiDataSource
-import com.example.hurgadhotel.data.repository.HotelRepository
-import com.example.hurgadhotel.data.repository.HotelRepositoryImpl
+import com.example.hurgadhotel.data.remote.ApiServiceDataSource
+import com.example.hurgadhotel.data.repository.RepositoryInterface
+import com.example.hurgadhotel.data.repository.RepositoryInterfaceImpl
 import org.koin.dsl.module
 
 val dataModule = module {
 
-    factory { provideHotelApi(get()) }
+    factory { provideApiService(get()) }
 
     single { provideRetrofit() }
 
-    factory<HotelApiDataSource> { HotelApiDataSource(hotelApi = get()) }
+    factory<ApiServiceDataSource> { ApiServiceDataSource(apiService = get()) }
 
-    single<HotelRepository> { HotelRepositoryImpl(hotelApiDataSource = get()) }
+    single<RepositoryInterface> { RepositoryInterfaceImpl(apiServiceDataSource = get()) }
 }
