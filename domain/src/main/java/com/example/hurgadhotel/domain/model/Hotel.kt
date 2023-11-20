@@ -10,7 +10,7 @@ data class Hotel(
     val price_for_it: String,
     val rating: Int,
     val rating_name: String,
-    val image_urls: ArrayList<String>,
+    val image_urls: List<String>,
     @SerializedName("about_the_hotel")
     val hotelDetails: HotelDetails
 )

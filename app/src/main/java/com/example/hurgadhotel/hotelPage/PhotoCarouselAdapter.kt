@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hurgadhotel.databinding.ItemPhotoBinding
 
-class PhotoCarouselAdapter(private val photos: ArrayList<String>) : RecyclerView.Adapter<PhotoCarouselAdapter.PhotoViewHolder>() {
+class PhotoCarouselAdapter(private val photos: List<String>) : RecyclerView.Adapter<PhotoCarouselAdapter.PhotoViewHolder>() {
     class PhotoViewHolder(private val binding: ItemPhotoBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(photo: String) {
             Glide.with(binding.photo.context)
