@@ -2,18 +2,27 @@ package com.example.hurgadhotel.di
 
 import com.example.hurgadhotel.data.remote.ApiRetrofitFactory.provideApiService
 import com.example.hurgadhotel.data.remote.ApiRetrofitFactory.provideRetrofit
-import com.example.hurgadhotel.data.remote.ApiServiceDataSource
-import com.example.hurgadhotel.data.repository.RepositoryInterface
-import com.example.hurgadhotel.data.repository.RepositoryInterfaceImpl
+import com.example.hurgadhotel.data.remote.HotelDataSource
+import com.example.domain.repository.HotelRepositoryInterface
+import com.example.domain.repository.RoomRepositoryInterface
+import com.example.hurgadhotel.data.remote.ApiService
+import com.example.hurgadhotel.data.remote.RoomDataSource
+import com.example.hurgadhotel.data.repository.HotelRepositoryImpl
+import com.example.hurgadhotel.data.repository.RoomRepositoryImpl
 import org.koin.dsl.module
+import retrofit2.Retrofit
 
 val dataModule = module {
 
-    factory { provideApiService(get()) }
+    factory<ApiService> { provideApiService(get()) }
 
-    single { provideRetrofit() }
+    single<Retrofit> { provideRetrofit() }
 
-    factory<ApiServiceDataSource> { ApiServiceDataSource(apiService = get()) }
+    factory<HotelDataSource> { HotelDataSource(apiService = get()) }
 
-    single<RepositoryInterface> { RepositoryInterfaceImpl(apiServiceDataSource = get()) }
+    factory<RoomDataSource> { RoomDataSource(apiService = get()) }
+
+    single<HotelRepositoryInterface> { HotelRepositoryImpl(hotelDataSource = get()) }
+
+    single<RoomRepositoryInterface> { RoomRepositoryImpl(roomDataSource = get()) }
 }

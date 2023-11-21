@@ -36,4 +36,7 @@ android {
 dependencies {
     //retrofit
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // LiveData
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
 }

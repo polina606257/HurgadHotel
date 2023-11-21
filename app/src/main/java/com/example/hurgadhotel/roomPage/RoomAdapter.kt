@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hurgadhotel.R
 import com.example.hurgadhotel.databinding.RoomBinding
-import com.example.hurgadhotel.domain.model.Room
+import com.example.domain.modul.Room
 import com.example.hurgadhotel.hotelPage.PhotoCarouselAdapter
 import com.example.hurgadhotel.utils.createAndUpdateDotIndicator
 

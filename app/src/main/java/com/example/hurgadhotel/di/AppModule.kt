@@ -7,10 +7,10 @@ import org.koin.dsl.module
 
 val appModule = module {
     viewModel<HotelViewModel> {
-        HotelViewModel(repository = get())
+        HotelViewModel(getHotelUseCase = get())
     }
 
     viewModel<RoomViewModel> {
-        RoomViewModel(repository = get())
+        RoomViewModel(getRoomsUseCase = get())
     }
 }

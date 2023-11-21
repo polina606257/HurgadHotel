@@ -1,6 +1,4 @@
-package com.example.hurgadhotel.data
-
-import com.example.hurgadhotel.domain.model.Hotel
+package com.example.domain
 
 sealed class DataResult<out R> {
     data class Success <out T>(val response: T) : DataResult<T>()
