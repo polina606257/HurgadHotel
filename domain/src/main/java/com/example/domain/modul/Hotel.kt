@@ -1,6 +1,7 @@
 package com.example.domain.modul
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Hotel(
     val id: Int,
@@ -13,5 +14,5 @@ data class Hotel(
     val image_urls: List<String>,
     @SerializedName("about_the_hotel")
     val hotelDetails: HotelDetails
-)
+) : Serializable
 

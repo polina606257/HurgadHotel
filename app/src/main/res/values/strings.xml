@@ -16,4 +16,15 @@
     <string name="smile_icon">smile icon</string>
     <string name="more_about_room">Подробнее о номере</string>
     <string name="choose_room">Выбрать номер</string>
+    <string name="booking">Бронирование</string>
+    <string name="take_off_from">Вылет из</string>
+    <string name="destination_text">Страна, город</string>
+    <string name="Dates">Даты</string>
+    <string name="number_nights">Кол-во ночей</string>
+    <string name="room">Номер</string>
+    <string name="food">Питание</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="email">Почта</string>
+    <string name="confidential_alert">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту</string>
+    <string name="buyer_info">Информация о покупателе</string>
 </resources>

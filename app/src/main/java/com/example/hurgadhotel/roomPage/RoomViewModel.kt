@@ -1,5 +1,6 @@
 package com.example.hurgadhotel.roomPage
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,9 +15,12 @@ class RoomViewModel(val getRoomsUseCase: GetRoomsUseCase) : ViewModel() {
 
     init {
         viewModelScope.launch {
-            val dataResult = getRoomsUseCase.execute()
-            if(dataResult is DataResult.Success) {
-                _rooms.value = dataResult.response
+            when (val dataResult = getRoomsUseCase()) {
+                is DataResult.Success -> _rooms.value = dataResult.response
+                is DataResult.Error -> Log.i(
+                    "TAG",
+                    "Couldn't find any rooms, error ${dataResult.error}"
+                )
             }
         }
     }

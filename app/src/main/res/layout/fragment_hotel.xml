@@ -238,7 +238,7 @@
                 app:layout_constraintTop_toBottomOf="@id/cardView2">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/to_choose_number_btn"
+                    android:id="@+id/to_choose_room_btn"
                     android:layout_width="343dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="16dp"

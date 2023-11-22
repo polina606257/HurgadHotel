@@ -1,5 +1,6 @@
 package com.example.hurgadhotel.di
 
+import com.example.hurgadhotel.bookingPage.BookingViewModel
 import com.example.hurgadhotel.hotelPage.HotelViewModel
 import com.example.hurgadhotel.roomPage.RoomViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -12,5 +13,9 @@ val appModule = module {
 
     viewModel<RoomViewModel> {
         RoomViewModel(getRoomsUseCase = get())
+    }
+
+    viewModel<BookingViewModel> {
+        BookingViewModel(getBookingInfoUseCase = get())
     }
 }

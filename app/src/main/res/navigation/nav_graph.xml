@@ -19,5 +19,12 @@
         android:id="@+id/roomFragment"
         android:name="com.example.hurgadhotel.roomPage.RoomFragment"
         android:label="RoomFragment" >
+        <action
+            android:id="@+id/action_roomFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.hurgadhotel.bookingPage.BookingFragment"
+        android:label="BookingFragment" />
 </navigation>

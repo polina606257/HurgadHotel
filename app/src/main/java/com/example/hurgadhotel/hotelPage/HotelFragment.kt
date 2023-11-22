@@ -56,11 +56,13 @@ class HotelFragment : Fragment() {
             }
         }
 
-        binding.toChooseNumberBtn.setOnClickListener {
-            val bundle = Bundle().apply {
-                putString("hotelName", hotelViewModel.hotel.value?.name)
+        binding.toChooseRoomBtn.setOnClickListener {
+            if (hotelViewModel.hotel.value != null) {
+                val bundle = Bundle().apply {
+                    putSerializable("hotel", hotelViewModel.hotel.value)
+                }
+                it.findNavController().navigate(R.id.action_hotelFragment_to_roomFragment, bundle)
             }
-            it.findNavController().navigate(R.id.action_hotelFragment_to_roomFragment, bundle)
         }
     }
 }

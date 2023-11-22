@@ -12,7 +12,7 @@ import com.example.domain.modul.Room
 import com.example.hurgadhotel.hotelPage.PhotoCarouselAdapter
 import com.example.hurgadhotel.utils.createAndUpdateDotIndicator
 
-class RoomAdapter(val roomsList: List<Room>, val context: Context) : RecyclerView.Adapter<RoomAdapter.ViewHolder>() {
+class RoomAdapter(val roomsList: List<Room>, val context: Context, val onChooseRoomClicked: () -> Unit) : RecyclerView.Adapter<RoomAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val binding = RoomBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         return ViewHolder(binding)
@@ -50,6 +50,10 @@ class RoomAdapter(val roomsList: List<Room>, val context: Context) : RecyclerVie
                 peculiarView.text = peculiar
                 binding.peculiarContainer.addView(peculiarView)
                 binding.peculiar.addView(peculiarView)
+            }
+
+            binding.toChooseRoomBtn.setOnClickListener {
+                onChooseRoomClicked()
             }
         }
     }
